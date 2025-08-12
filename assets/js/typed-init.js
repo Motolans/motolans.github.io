@@ -8,7 +8,9 @@ window.addEventListener("load", function() {
     typeSpeed: 50,
     backSpeed: 25,
     backDelay: 1500,
-    loop: true
+    loop: true,
+    onBegin: ()=> {
+      document.getElementById('typed-text').style.visibility = 'visible';
   });
 });
-document.getElementById('typed-text').style.visibility = 'visible';
+
