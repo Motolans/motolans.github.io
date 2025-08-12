@@ -1,6 +1,5 @@
 .typed-text {
-  display: block;
-  margin: 0.3em 0 1em 0;
+  display: inline-block;
   font-weight: 600;
   color: var(--accent-color, #f97316);
   font-size: 1.2rem;
@@ -44,7 +43,9 @@
 
 .typed-text-wrapper {
   display: block;
-  margin-top: 0.3em;
+  clear: both;       /* prevent float interference */
+  margin: 0.3em 0 1em;
+  text-align: center; /* match your centered h1 */
 }
 
 .callout-block {
