@@ -7,6 +7,12 @@
   white-space: nowrap;
 }
 
+.hero-intro .typed-text {
+  display: block;
+  margin: 0.3em 0 1em 0 !important;
+  position: relative !important;
+}
+
 .hero-block {
   padding: 2rem 1rem;
   border-radius: 8px;
