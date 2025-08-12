@@ -1,11 +1,12 @@
 .typed-text {
   display: inline-block;
   font-weight: 600;
-  color: var(--accent-color, #f97316);
+  color: var(--accent-color, #f97316); /* make sure this variable is defined, or use a fallback like #f97316 */
   font-size: 1.2rem;
   white-space: nowrap;
   min-height: 1.5em;
-  min-width: 20ch;  /* width to fit your longest string */
+  min-width: 20ch; /* adjust as needed */
+  visibility: visible !important; /* force visible */
 }
 
 .hero-block {
