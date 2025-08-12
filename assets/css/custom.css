@@ -36,10 +36,9 @@
   margin-top: 0.5rem;
 }
 
-.hero-intro h1,
-.hero-intro .typed-text {
-  position: relative;
+.typed-text-wrapper {
   display: block;
+  margin-top: 0.3em;
 }
 
 .callout-block {
