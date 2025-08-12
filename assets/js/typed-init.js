@@ -7,9 +7,8 @@ const typed = new Typed('#typed-text', {
   backSpeed: 25,
   backDelay: 1000,
   loop: true,
-  onStart: () => {
-    typedEl.style.visibility = 'visible';
-  }
+  showCursor: true,
+  cursorChar: '|'
 });
 
 
