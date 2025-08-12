@@ -28,7 +28,7 @@ read_time: false
   <div class="hero-intro" style="position: relative; z-index: 1; max-width: 700px; margin: 0 auto; padding: 2rem 1rem;">
     <h1>Christopher Motola</h1>
     <div class="typed-text-wrapper">
-      <span id="typed-text" class="typed-text">Patterns in the noise</span>
+      <span id="typed-text" class="typed-text" style="visibility: hidden;">Patterns in the noise</span>
     </div>
     <p>Writing, analysis, and experimentation from the intersection of journalism and logic.</p>
   </div>
