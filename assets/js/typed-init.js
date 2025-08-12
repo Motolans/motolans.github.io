@@ -6,10 +6,11 @@ const typed = new Typed('#typed-text', {
   typeSpeed: 50,
   backSpeed: 25,
   backDelay: 1000,
-  loop: true
+  loop: true,
+  onStart: () => {
+    typedEl.style.visibility = 'visible';
+  }
 });
 
-// Show it immediately after initialization
-typedEl.style.visibility = 'visible'
 
       
