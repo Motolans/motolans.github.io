@@ -7,6 +7,10 @@ author_profile: false
 read_time: false
 ---
 
+# {{ page.title }}
+
+<span id="typed-text" class="typed-text"></span>
+
 <!-- Hero Section with Visual Background -->
 <div style="position: relative; overflow: hidden; min-height: 300px;">
 
