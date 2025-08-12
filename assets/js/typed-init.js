@@ -6,7 +6,9 @@ document.addEventListener('DOMContentLoaded', () =>{
     backDelay: 1500,
     loop: true,
     showCursor: true,
-    cursorChar: '|'
+    cursorChar: '|',
+    smartBackspace: false,  // disable smart backspace
+    shuffle: false,         // optional, keeps string order consistent
   });
 });
 
