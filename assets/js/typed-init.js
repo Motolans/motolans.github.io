@@ -9,7 +9,7 @@ window.addEventListener("load", function() {
     backSpeed: 25,
     backDelay: 1500,
     loop: true,
-    onBegin: ()=> {
+    onStart: ()=> {
       document.getElementById('typed-text').style.visibility = 'visible';
   });
 });
