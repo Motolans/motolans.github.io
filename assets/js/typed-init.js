@@ -9,6 +9,14 @@ document.addEventListener('DOMContentLoaded', () =>{
     cursorChar: '|',
     smartBackspace: false,  // disable smart backspace
     shuffle: false,         // optional, keeps string order consistent
+    onStringTyped: () => {
+      const cursor = document.querySelector('.typed-cursor');
+      if (cursor) {
+        cursor.style.display = 'none';
+        setTimeout(() => {
+          cursor.style.display = 'inline';
+        }, 50);
+    }
   });
 });
 
