@@ -1,5 +1,5 @@
 window.addEventListener("load", function() {
-  new Typed("#typed-text", {
+  new Typed(".hero-intro #typed-text", {
     strings: [
       "Data into stories",
       "Stories into systems",
