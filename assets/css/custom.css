@@ -4,6 +4,8 @@
   color: var(--accent-color, #f97316);
   font-size: 1.2rem;
   white-space: nowrap;
+  min-height: 1.5em;
+  min-width: 20ch;  /* width to fit your longest string */
 }
 
 .hero-block {
