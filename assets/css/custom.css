@@ -1,12 +1,22 @@
 .typed-text {
-  display: inline-block;
   font-weight: 600;
-  color: var(--accent-color, #f97316); /* make sure this variable is defined, or use a fallback like #f97316 */
+  color: var(--accent-color, #f97316);
   font-size: 1.2rem;
   white-space: nowrap;
   min-height: 1.5em;
-  min-width: 20ch; /* adjust as needed */
-  visibility: visible !important; /* force visible */
+  min-width: 20ch; /* adjust for longest string */
+}
+
+.typed-cursor {
+  font-weight: 600;
+  color: var(--accent-color, #f97316);
+  animation: blink 0.7s infinite;
+  vertical-align: bottom;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
 }
 
 .hero-block {
