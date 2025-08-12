@@ -11,3 +11,4 @@ window.addEventListener("load", function() {
     loop: true
   });
 });
+document.getElementById('typed-text').style.visibility = 'visible';
