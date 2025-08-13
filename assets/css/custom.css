@@ -46,6 +46,11 @@
   margin: 0 auto;
 }
 
+.floating {
+  display: inline-block;
+  animation: floatUpDown 6s ease-in-out infinite;
+}
+
 @keyframes gradientShift {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
@@ -77,11 +82,7 @@
   }
 }
 
-/* Gentle floating animation */
-.floating {
-  display: inline-block;
-  animation: floatUpDown 6s ease-in-out infinite;
-}
+
 
 @keyframes floatUpDown {
   0%, 100% {
@@ -94,13 +95,10 @@
 
 .typed-text {
   display: inline-block;
-  animation: floatUpDown 6s ease-in-out infinite;
+  color: var(--accent-color, #f97316); /* or your preferred color */
   font-weight: 600;
-  color: var(--accent-color, #f97316);
   font-size: 1.2rem;
   white-space: nowrap;
-  min-height: 1.5em;
-  min-width: 20ch; /* adjust for longest string */
 }
 
 .typed-cursor {
@@ -117,7 +115,7 @@
 
 @keyframes floatUpDown {
   0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-3px); } /* subtle motion to avoid scrollbar changes */
+  50% { transform: translateY(-3px); }
 }
 
 .hero-block {
