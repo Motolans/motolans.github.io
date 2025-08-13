@@ -25,7 +25,7 @@ read_time: false
               border-radius: 200px / 100px;"/>
 
   <!-- Foreground Content -->
-  <div class="hero-intro hero gradient" style="position: relative; z-index: 1; max-width: 700px; margin: 0 auto; padding: 2rem 1rem;">
+  <div class="hero-intro hero-gradient" style="position: relative; z-index: 1; max-width: 700px; margin: 0 auto; padding: 2rem 1rem;">
     <h1>Christopher Motola</h1>
     <div class="typed-text-wrapper">
       <span id="typed-text" class="typed-text"></span>
