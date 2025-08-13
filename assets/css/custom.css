@@ -3,10 +3,12 @@
   background: linear-gradient(-45deg, #ff7e5f, #feb47b, #6a82fb, #2a2a72);
   background-size: 400% 400%;
   animation: gradientShift 20s ease infinite;
-  padding: 4rem 2rem;
-  text-align: center;
-  border-radius: 12px;
-  color: white;
+  -webkit-mask-image: url('/assets/images/dotted-pattern-art.svg');
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: cover;
+  mask-image: url('/assets/images/dotted-pattern-art.svg');
+  mask-repeat: no-repeat;
+  mask-size: cover;
 }
 
 /* Gradient animation keyframes */
