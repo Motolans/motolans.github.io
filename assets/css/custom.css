@@ -4,7 +4,8 @@
   z-index: 1;
   max-width: 700px;
   margin: 0 auto;
-  padding: 4rem 1rem 6rem; /* extra bottom padding for wave */
+  height: 500px; /* fixed height prevents vertical stutter */
+  padding: 4rem 1rem 0;
   background: linear-gradient(120deg, #002244, #ff6600, #002244);
   background-size: 400% 400%;
   animation: gradientShift 12s ease infinite;
@@ -39,7 +40,7 @@
 }
 
 .hero-intro {
-  position: relative; /* ensures text sits above overlay */
+  position: relative; /* ensures text sits above wave */
   z-index: 1;
   max-width: 700px;
   margin: 0 auto;
@@ -116,7 +117,7 @@
 
 @keyframes floatUpDown {
   0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-6px); }
+  50% { transform: translateY(-3px); } /* subtle motion to avoid scrollbar changes */
 }
 
 .hero-block {
