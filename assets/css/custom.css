@@ -1,3 +1,42 @@
+/* Animated gradient background for hero */
+.hero-gradient {
+  background: linear-gradient(-45deg, #ff7e5f, #feb47b, #6a82fb, #2a2a72);
+  background-size: 400% 400%;
+  animation: gradientShift 20s ease infinite;
+  padding: 4rem 2rem;
+  text-align: center;
+  border-radius: 12px;
+  color: white;
+}
+
+/* Gradient animation keyframes */
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Gentle floating animation */
+.floating {
+  display: inline-block;
+  animation: floatUpDown 6s ease-in-out infinite;
+}
+
+@keyframes floatUpDown {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
 .typed-text {
   font-weight: 600;
   color: var(--accent-color, #f97316);
