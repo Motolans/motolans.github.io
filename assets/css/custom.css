@@ -1,4 +1,4 @@
-
+/* ===== HERO CONTAINER ===== */
 .hero {
   position: relative;
   z-index: 1;
@@ -15,7 +15,7 @@
   color: white;
 }
 
-/* Feathered bottom overlay */
+/* ===== WAVY BOTTOM ===== */
 .hero::after {
   content: "";
   position: absolute;
@@ -28,79 +28,56 @@
   pointer-events: none;
 }
 
-/* Subtle dotted pattern inside */
+/* ===== SUBTLE DOTTED PATTERN ===== */
 .hero::before {
   content: "";
   position: absolute;
   inset: 0;
   background: url("/assets/images/dotted-pattern-art.svg") center/cover no-repeat;
-  opacity: 0.05; /* super subtle */
+  opacity: 0.05;
   mix-blend-mode: overlay;
   pointer-events: none;
 }
 
+/* ===== HERO INTRO CONTENT ===== */
 .hero-intro {
-  position: relative; /* ensures text sits above wave */
+  position: relative; /* text above wave and pattern */
   z-index: 1;
   max-width: 700px;
   margin: 0 auto;
+  text-align: left;
 }
 
-.floating {
-  display: inline-block;
-  animation: floatUpDown 6s ease-in-out infinite;
+/* Headline */
+.hero-intro h1 {
+  font-size: 1.8rem;
+  text-align: center;
+  font-weight: 600;
+  color: #1a202c;
+  margin-bottom: 0.5rem;
 }
 
-/* Keep wrapper layout stable */
+/* Tagline */
+.hero-intro p {
+  font-size: 1.15rem;
+  color: #4a5568;
+  line-height: 1.6;
+  margin-top: 0.5rem;
+}
+
+/* ===== TYPED TEXT ===== */
 .typed-text-wrapper {
-  height: 1.4em; /* reserve space for one line of text */
-}
-
-@keyframes gradientShift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-/* Animated gradient background for hero */
-.hero-gradient {
-  background: linear-gradient(-45deg, #ff7e5f, #feb47b, #6a82fb, #2a2a72);
-  background-size: 400% 400%;
-  animation: gradientShift 20s ease infinite;
-  -webkit-mask-image: url('/assets/images/dotted-pattern-art.svg');
-  -webkit-mask-repeat: no-repeat;
-  -webkit-mask-size: cover;
-  mask-image: url('/assets/images/dotted-pattern-art.svg');
-  mask-repeat: no-repeat;
-  mask-size: cover;
-}
-
-/* Gradient animation keyframes */
-@keyframes gradientShift {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-
-
-@keyframes floatUpDown {
-  0%, 100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-6px);
-  }
+  height: 2em; /* reserve space for floating */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.5rem;
 }
 
 .typed-text {
   display: inline-block;
-  color: var(--accent-color, #f97316); /* or your preferred color */
+  animation: floatUpDown 6s ease-in-out infinite;
+  color: var(--accent-color, #f97316);
   font-weight: 600;
   font-size: 1.2rem;
   white-space: nowrap;
@@ -113,44 +90,25 @@
   vertical-align: bottom;
 }
 
+/* ===== GRADIENT ANIMATION ===== */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ===== FLOATING ANIMATION ===== */
+@keyframes floatUpDown {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-2px); } /* subtle */
+}
+
+/* ===== CURSOR BLINK ===== */
 @keyframes blink {
   0%, 50% { opacity: 1; }
   51%, 100% { opacity: 0; }
 }
 
-@keyframes floatUpDown {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-3px); }
-}
-
-.hero-block {
-  padding: 2rem 1rem;
-  border-radius: 8px;
-  margin-bottom: 2rem;
-}
-
-.hero-intro {
-  text-align: left;
-  margin: 2rem auto 3rem;
-  padding: 0 1rem;
-  margin-bottom: 3rem;
-  max-width: 700px;
-}
-
-.hero-intro h1 {
-  font-size: 1.8rem;
-  text-align: center;
-  font-weight: 600;
-  color: #1a202c; /* deep gray-blue */
-  margin-bottom: 0.5rem;
-}
-
-.hero-intro p {
-  font-size: 1.15rem;
-  color: #4a5568; /* lighter gray for contrast */
-  line-height: 1.6;
-  margin-top: 0.5rem;
-}
 
 .callout-block {
   background-color: #f0f9ff;
