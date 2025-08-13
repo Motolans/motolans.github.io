@@ -21,11 +21,12 @@
   position: absolute;
   bottom: 0;
   left: 0;
-  width: 100%;
+  width: 200%; /* wider than container to allow movement */
   height: 120px;
-  background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1440 120" xmlns="http://www.w3.org/2000/svg"><path fill="%23ffffff" d="M0,0 C480,120 960,0 1440,120 L1440,120 L0,120 Z"></path></svg>') no-repeat bottom;
+  background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1440 120" xmlns="http://www.w3.org/2000/svg"><path fill="%23ffffff" d="M0,0 C480,120 960,0 1440,120 L1440,120 L0,120 Z"></path></svg>') repeat-x bottom;
   background-size: cover;
   pointer-events: none;
+  animation: waveMove 6s linear infinite;
 }
 
 /* ===== SUBTLE DOTTED PATTERN ===== */
@@ -108,7 +109,11 @@
   0%, 50% { opacity: 1; }
   51%, 100% { opacity: 0; }
 }
-
+/* Keyframes to slide the wave horizontally */
+@keyframes waveMove {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); } /* slide half the width, loops seamlessly */
+}
 
 .callout-block {
   background-color: #f0f9ff;
