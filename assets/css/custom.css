@@ -1,24 +1,39 @@
 
 .hero {
   position: relative;
-  overflow: hidden;
-  background: linear-gradient(-45deg, #ff7e5f, #feb47b, #6a82fb, #2a2a72);
+  z-index: 1;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  background: linear-gradient(120deg, #002244, #ff6600, #002244);
   background-size: 400% 400%;
-  animation: gradientShift 20s ease infinite;
-  color: white;
-  text-align: center;
-  padding: 4rem 1rem;
+  animation: gradientShift 12s ease infinite;
+  border-radius: 2rem; /* softer corners */
+  overflow: hidden;
+  clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%);
 }
 
+/* Feathered bottom overlay */
 .hero::after {
   content: "";
   position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 40%;
+  background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, var(--site-bg-color, #fff) 100%);
+  pointer-events: none;
+}
+
+/* Subtle dotted pattern inside */
+.hero::before {
+  content: "";
+  position: absolute;
   inset: 0;
-  background-image: url('/assets/images/dotted-pattern-art.svg');
-  background-size: cover;
-  opacity: 0.08; /* tweak for more/less texture */
-  pointer-events: none; /* prevent mouse/touch blocking */
-  z-index: 0;
+  background: url("/assets/images/dotted-pattern-art.svg") center/cover no-repeat;
+  opacity: 0.05; /* super subtle */
+  mix-blend-mode: overlay;
+  pointer-events: none;
 }
 
 .hero-intro {
