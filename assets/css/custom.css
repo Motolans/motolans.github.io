@@ -8,7 +8,7 @@
   background: linear-gradient(120deg, #002244, #ff6600, #002244);
   background-size: 400% 400%;
   animation: gradientShift 12s ease infinite;
-  border-radius: 2rem;
+  border-radius: 2rem 2rem 0 0; /* only top corners rounded */
   overflow: hidden;
   text-align: center;
   color: white;
@@ -92,6 +92,8 @@
 }
 
 .typed-text {
+  display: inline-block;
+  animation: floatUpDown 6s ease-in-out infinite;
   font-weight: 600;
   color: var(--accent-color, #f97316);
   font-size: 1.2rem;
@@ -110,6 +112,11 @@
 @keyframes blink {
   0%, 50% { opacity: 1; }
   51%, 100% { opacity: 0; }
+}
+
+@keyframes floatUpDown {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
 }
 
 .hero-block {
