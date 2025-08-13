@@ -8,16 +8,16 @@ read_time: false
 ---
 
 
-<!-- Hero Section with Visual Background -->
-<div style="position: relative; overflow: hidden; min-height: 300px;">
-  <!-- Foreground Content -->
-  <div class="hero-intro hero-gradient" style="position: relative; z-index: 1; max-width: 700px; margin: 0 auto; padding: 2rem 1rem;">
+<!-- HERO SECTION -->
+<div class="hero">
+  <div class="hero-intro">
     <h1>Christopher Motola</h1>
     <div class="typed-text-wrapper">
       <span id="typed-text" class="typed-text"></span>
     </div>
     <p>Writing, analysis, and experimentation from the intersection of journalism and logic.</p>
   </div>
+</div>
 
 </div>
 
