@@ -12,7 +12,7 @@ read_time: false
 <div class="hero">
   <div class="hero-intro">
     <h1>Christopher Motola</h1>
-    <div class="typed-text-wrapper">
+    <div class="typed-text-wrapper floating">
       <span id="typed-text" class="typed-text"></span>
     </div>
     <p>Writing, analysis, and experimentation from the intersection of journalism and logic.</p>
