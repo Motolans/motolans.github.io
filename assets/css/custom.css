@@ -1,3 +1,38 @@
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(-45deg, #ff7e5f, #feb47b, #6a82fb, #2a2a72);
+  background-size: 400% 400%;
+  animation: gradientShift 20s ease infinite;
+  color: white;
+  text-align: center;
+  padding: 4rem 1rem;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url('/assets/images/dotted-pattern-art.svg');
+  background-size: cover;
+  opacity: 0.08; /* tweak for more/less texture */
+  pointer-events: none; /* prevent mouse/touch blocking */
+  z-index: 0;
+}
+
+.hero-intro {
+  position: relative; /* ensures text sits above overlay */
+  z-index: 1;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
 /* Animated gradient background for hero */
 .hero-gradient {
   background: linear-gradient(-45deg, #ff7e5f, #feb47b, #6a82fb, #2a2a72);
