@@ -1,13 +1,19 @@
 /* ===== HERO SECTION ===== */
 .hero {
   position: relative;
-  background: linear-gradient(135deg, #ff7e5f, #feb47b);
-  background-size: 200% 200%;
-  animation: gradientShift 20s ease infinite;
-  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 2rem;
   text-align: center;
-  padding: 100px 20px 0; /* no bottom padding so waves sit flush */
   overflow: hidden;
+
+  /* Animated gradient background */
+  background: linear-gradient(270deg, #ff914d, #004e92, #ff914d);
+  background-size: 600% 600%;
+  animation: gradientShift 18s ease infinite;
 }
 
 /* ===== DOTTED PATTERN OVERLAY ===== */
