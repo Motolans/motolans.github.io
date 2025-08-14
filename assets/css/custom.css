@@ -1,65 +1,60 @@
-/* ===== HERO CONTAINER ===== */
+/* Base styles for the hero section */
 .hero {
   position: relative;
-  z-index: 1;
-  max-width: 700px;
-  margin: 0 auto;
-  min-height: 500px;
-  height: auto;
-  padding: 4rem 1rem 2rem;
-  background: linear-gradient(120deg, #002244, #ff6600, #002244);
-  background-size: 400% 400%;
-  animation: gradientShift 12s ease infinite;
-  border-radius: 2rem 2rem 0 0;
-  overflow: hidden;
-  text-align: center;
+  background: linear-gradient(135deg, #ff7e5f, #feb47b);
   color: white;
+  text-align: center;
+  padding: 100px 20px 0; /* no bottom padding so waves sit flush */
+  overflow: hidden; /* hides any overflow from the waves */
 }
 
-/* ===== WAVES ===== */
+/* Wave container at the bottom of hero */
 .wave-container {
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 120px;
+  height: 120px; /* matches SVG height */
   overflow: hidden;
-  z-index: 2;
+  z-index: 1; /* sits above hero background but below content */
 }
 
-.wave-container svg {
-  display: block;
+/* General wave layer styles */
+.wave {
   position: absolute;
+  left: 0;
   bottom: 0;
-  width: 200%; /* double width for smooth repeat */
-  height: 120px;
+  width: 200%; /* double width for smooth looping */
+  height: 100%;
+  background-repeat: repeat-x;
+  background-size: 50% 100%; /* matches double width for seamless repeat */
 }
 
-/* BACK WAVE */
+/* Back wave */
 .wave-back {
-  z-index: 1;
+  background-image: url('back-wave.svg'); /* lighter/back layer SVG */
   animation: waveMoveBack 12s linear infinite;
-  opacity: 1 !important; /* fully opaque */
-  mix-blend-mode: normal !important;
+  opacity: 1;
+  z-index: 1;
 }
 
-/* FRONT WAVE */
+/* Front wave */
 .wave-front {
-  z-index: 2;
+  background-image: url('front-wave.svg'); /* darker/front layer SVG */
   animation: waveMoveFront 6s linear infinite;
-  opacity: 1 !important;
-  mix-blend-mode: normal !important;
+  opacity: 1; /* fully opaque */
+  z-index: 2;
 }
 
-/* Wave animations */
-@keyframes waveMoveFront {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
-
+/* Animation keyframes for seamless movement */
 @keyframes waveMoveBack {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-25%); }
+  from { background-position-x: 0; }
+  to { background-position-x: -50%; }
+}
+
+@keyframes waveMoveFront {
+  from { background-position-x: 0; }
+  to { background-position-x: -50%; }
 }
 
 /* ===== SUBTLE DOTTED PATTERN ===== */
