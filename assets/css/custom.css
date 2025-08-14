@@ -78,9 +78,10 @@
 
 /* ===== WAVE CONTAINER ===== */
 .wave-container {
+  display: block;
   position: absolute;
   bottom: 0;
-  width: 100%;
+  width: 200%;
   height: 120px;
   overflow: hidden;
   z-index: 2;
@@ -94,10 +95,13 @@
 
 /* Make sure back wave is behind front wave */
 .wave-back {
+  animation: waveAnimation 12s linear infinite;
+  opacity: 0.5;
   z-index: 1;
 }
 
 .wave-front {
+  animation: waveAnimation 8s linear infinite;
   z-index: 2;
 }
 
@@ -119,6 +123,16 @@
   0%, 50% { opacity: 1; }
   51%, 100% { opacity: 0; }
 }
+
+/* Animation keyframes */
+@keyframes waveAnimation {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+
 
 /* ===== CALLOUTS ===== */
 .callout-block {
