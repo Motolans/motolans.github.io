@@ -7,48 +7,54 @@ author_profile: false
 read_time: false
 ---
 
+<!-- ===== HERO SECTION ===== -->
+<section class="hero">
 
-<!-- HERO SECTION -->
-<div class="hero">
+  <!-- Subtle dotted pattern via ::before is handled in CSS -->
+
+  <!-- Hero Intro Text -->
   <div class="hero-intro">
     <h1>Christopher Motola</h1>
+
+    <!-- Typed text -->
     <div class="typed-text-wrapper">
       <span id="typed-text" class="typed-text"></span>
     </div>
+
     <p>Writing, analysis, and experimentation from the intersection of journalism and logic.</p>
   </div>
 
-  <!-- Layered Waves -->
+  <!-- Wave Container -->
   <div class="wave-container">
     <!-- Back wave -->
     <svg class="wave wave-back" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120" preserveAspectRatio="none">
       <path fill="#FAFAFA" fill-opacity="0.6"
-            d="M0,80 C360,40 1080,80 1440,100 L1440,120 L0,120 Z">
+            d="M0,100 C360,75 720,60 1080,85 C1440,95 1440,120 0,120 Z">
         <animate attributeName="d"
                  dur="18s"
                  repeatCount="indefinite"
                  values="
-                 M0,80 C360,40 1080,80 1440,100 L1440,120 L0,120 Z;
-                 M0,90 C360,60 1080,90 1440,80 L1440,120 L0,120 Z;
-                 M0,80 C360,40 1080,80 1440,100 L1440,120 L0,120 Z" />
+                 M0,100 C360,75 720,60 1080,85 C1440,95 1440,120 0,120 Z;
+                 M0,105 C360,80 720,65 1080,90 C1440,100 1440,120 0,120 Z;
+                 M0,100 C360,75 720,60 1080,85 C1440,95 1440,120 0,120 Z" />
       </path>
     </svg>
-    
-    <!-- Front wave (faster, full opacity) -->
+
+    <!-- Front wave -->
     <svg class="wave wave-front" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120" preserveAspectRatio="none">
       <path fill="#FAFAFA" fill-opacity="1"
-            d="M0,85 C360,60 1080,40 1440,90 L1440,120 L0,120 Z">
+            d="M0,90 C360,60 720,80 1080,55 C1440,30 1440,120 0,120 Z">
         <animate attributeName="d"
                  dur="10s"
                  repeatCount="indefinite"
                  values="
-                 M0,85 C360,60 1080,40 1440,90 L1440,120 L0,120 Z;
-                 M0,95 C360,80 1080,60 1440,100 L1440,120 L0,120 Z;
-                 M0,85 C360,60 1080,40 1440,90 L1440,120 L0,120 Z" />
+                 M0,90 C360,60 720,80 1080,55 C1440,30 1440,120 0,120 Z;
+                 M0,95 C360,65 720,85 1080,60 C1440,35 1440,120 0,120 Z;
+                 M0,90 C360,60 720,80 1080,55 C1440,30 1440,120 0,120 Z" />
       </path>
     </svg>
   </div>
-</div>
+</section>
 
 <h2 class="section-header"><span class="material-symbols-outlined" style="color: #1e3a8a;">folder_check</span> Featured Work</h2>  
 - **[Data Journalism](portfolio/economic-trends/)** – Data analysis for mass audiences  
