@@ -56,7 +56,6 @@
   from { background-position-x: 0; }
   to { background-position-x: -50%; }
 }
-
 /* ===== SUBTLE DOTTED PATTERN ===== */
 .hero::before {
   content: "";
