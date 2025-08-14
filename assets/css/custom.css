@@ -1,22 +1,70 @@
-/* ===== HERO SECTION ===== */
+/* ===== HERO CONTAINER ===== */
 .hero {
   position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-  padding: 2rem;
+  z-index: 1;
+  max-width: 700px;
+  margin: 0 auto;
+  min-height: 500px;
+  padding: 100px 20px 0; /* no bottom padding so waves sit flush */
+  background: linear-gradient(120deg, #002244, #ff6600, #002244);
+  background-size: 400% 400%;
+  animation: gradientShift 12s ease infinite;
   text-align: center;
-  overflow: hidden;
-
-  /* Animated gradient background */
-  background: linear-gradient(270deg, #ff914d, #004e92, #ff914d);
-  background-size: 600% 600%;
-  animation: gradientShift 18s ease infinite;
+  color: white;
+  overflow: hidden; /* ensures waves don’t overflow hero */
 }
 
-/* ===== DOTTED PATTERN OVERLAY ===== */
+/* ===== WAVES ===== */
+.wave-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 120px;
+  overflow: hidden;
+  z-index: 2; /* above background but below text */
+}
+
+.wave-container svg {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 200%; /* double width for smooth looping */
+  height: 100%;
+}
+
+.wave-back path {
+  fill: #FAFAFA;
+  opacity: 0.6;
+}
+
+.wave-front path {
+  fill: #FAFAFA;
+  opacity: 1;
+}
+
+/* Animate waves horizontally */
+@keyframes waveMoveBack {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes waveMoveFront {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.wave-back {
+  animation: waveMoveBack 12s linear infinite;
+  z-index: 1;
+}
+
+.wave-front {
+  animation: waveMoveFront 6s linear infinite;
+  z-index: 2;
+}
+
+/* ===== SUBTLE DOTTED PATTERN ===== */
 .hero::before {
   content: "";
   position: absolute;
@@ -25,18 +73,19 @@
   opacity: 0.05;
   mix-blend-mode: overlay;
   pointer-events: none;
-  z-index: 0;
 }
 
 /* ===== HERO INTRO CONTENT ===== */
 .hero-intro {
-  position: relative;
-  z-index: 2;
+  position: relative; /* text above wave and pattern */
+  z-index: 3;
   max-width: 90%;
   margin: 0 auto;
+  padding: 0;
   text-align: center;
 }
 
+/* Headline */
 .hero-intro h1 {
   font-size: 1.8rem;
   font-weight: 600;
@@ -44,6 +93,7 @@
   margin-bottom: 0.5rem;
 }
 
+/* Tagline */
 .hero-intro p {
   font-size: 1.15rem;
   color: #4a5568;
@@ -53,7 +103,7 @@
 
 /* ===== TYPED TEXT ===== */
 .typed-text-wrapper {
-  height: 2em;
+  height: 2em; /* reserve space */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -76,35 +126,6 @@
   vertical-align: bottom;
 }
 
-/* ===== WAVE CONTAINER ===== */
-.wave-container {
-  display: block;
-  position: absolute;
-  bottom: 0;
-  width: 200%;
-  height: 120px;
-  overflow: hidden;
-  z-index: 2;
-}
-
-.wave {
-  display: block;
-  width: 100%;
-  height: 100%;
-}
-
-/* Make sure back wave is behind front wave */
-.wave-back {
-  animation: waveAnimation 12s linear infinite;
-  opacity: 0.5;
-  z-index: 1;
-}
-
-.wave-front {
-  animation: waveAnimation 8s linear infinite;
-  z-index: 2;
-}
-
 /* ===== GRADIENT ANIMATION ===== */
 @keyframes gradientShift {
   0% { background-position: 0% 50%; }
@@ -123,16 +144,6 @@
   0%, 50% { opacity: 1; }
   51%, 100% { opacity: 0; }
 }
-
-/* Animation keyframes */
-@keyframes waveAnimation {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
-
 
 /* ===== CALLOUTS ===== */
 .callout-block {
