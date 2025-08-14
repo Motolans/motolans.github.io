@@ -10,8 +10,6 @@ read_time: false
 <!-- ===== HERO SECTION ===== -->
 <section class="hero">
 
-  <!-- Subtle dotted pattern via ::before is handled in CSS -->
-
   <!-- Hero Intro Text -->
   <div class="hero-intro">
     <h1>Christopher Motola</h1>
@@ -28,30 +26,12 @@ read_time: false
   <div class="wave-container">
     <!-- Back wave -->
     <svg class="wave wave-back" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120" preserveAspectRatio="none">
-      <path fill="#FAFAFA" fill-opacity="0.6"
-            d="M0,100 C360,75 720,60 1080,85 C1440,95 1440,120 0,120 Z">
-        <animate attributeName="d"
-                 dur="18s"
-                 repeatCount="indefinite"
-                 values="
-                 M0,100 C360,75 720,60 1080,85 C1440,95 1440,120 0,120 Z;
-                 M0,105 C360,80 720,65 1080,90 C1440,100 1440,120 0,120 Z;
-                 M0,100 C360,75 720,60 1080,85 C1440,95 1440,120 0,120 Z" />
-      </path>
+      <path d="M0,100 C360,75 720,60 1080,85 C1440,95 1440,120 0,120 Z"/>
     </svg>
 
     <!-- Front wave -->
     <svg class="wave wave-front" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120" preserveAspectRatio="none">
-      <path fill="#FAFAFA" fill-opacity="1"
-            d="M0,90 C360,60 720,80 1080,55 C1440,30 1440,120 0,120 Z">
-        <animate attributeName="d"
-                 dur="10s"
-                 repeatCount="indefinite"
-                 values="
-                 M0,90 C360,60 720,80 1080,55 C1440,30 1440,120 0,120 Z;
-                 M0,95 C360,65 720,85 1080,60 C1440,35 1440,120 0,120 Z;
-                 M0,90 C360,60 720,80 1080,55 C1440,30 1440,120 0,120 Z" />
-      </path>
+      <path d="M0,90 C360,60 720,80 1080,55 C1440,30 1440,120 0,120 Z"/>
     </svg>
   </div>
 </section>
