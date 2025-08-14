@@ -47,6 +47,8 @@
 
 .wave-front {
   z-index: 2;
+  opacity: 1 !important;
+  mix-blend-mode: normal !important;
 }
 
 @keyframes waveAnimation {
