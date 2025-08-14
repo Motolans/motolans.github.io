@@ -5,7 +5,7 @@
   max-width: 700px;
   margin: 0 auto;
   min-height: 500px;
-  height: auto; /* fixed height prevents vertical stutter */
+  height: auto; /* flexible height */
   padding: 4rem 1rem 2rem;
   background: linear-gradient(120deg, #002244, #ff6600, #002244);
   background-size: 400% 400%;
@@ -16,6 +16,7 @@
   color: white;
 }
 
+/* ===== WAVES ===== */
 .wave-container {
   position: absolute;
   bottom: 0;
@@ -26,23 +27,16 @@
   z-index: 3;
 }
 
-.wave {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 200%; /* allows morphing animation to overflow smoothly */
-  height: 100%;
-}
-
 .wave-container svg {
   display: block;
   position: relative;
-  width: calc(150% + 1.3px); /* extra width for smooth animation loop */
-  height: 150px; /* adjust to your liking */
+  width: 200%; /* allow overflow for animation */
+  height: 120px;
 }
 
 .wave-back {
   z-index: 1;
+  opacity: 0.6;
 }
 
 .wave-front {
@@ -51,18 +45,11 @@
   mix-blend-mode: normal !important;
 }
 
-@keyframes waveAnimation {
-  0%   { transform: translateX(0); }
-  100% { transform: translateX(-25%); }
+/* Animate wave horizontally */
+@keyframes waveMove {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
-
-/* Optional: smooth fade into background color */
-.wave-fade {
-  background: linear-gradient(to bottom, transparent 0%, #FAFAFA 100%);
-  height: 50px;
-}
-
-
 
 /* ===== SUBTLE DOTTED PATTERN ===== */
 .hero::before {
@@ -83,7 +70,6 @@
   margin: 0 auto;
   padding: 0;
   text-align: center;
-  
 }
 
 /* Headline */
@@ -106,7 +92,7 @@
 
 /* ===== TYPED TEXT ===== */
 .typed-text-wrapper {
-  height: 2em; /* reserve space for floating */
+  height: 2em; /* reserve space to prevent vertical stutter */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -146,11 +132,6 @@
 @keyframes blink {
   0%, 50% { opacity: 1; }
   51%, 100% { opacity: 0; }
-}
-/* Keyframes to slide the wave horizontally */
-@keyframes waveMove {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); } /* slide half the width, loops seamlessly */
 }
 
 .callout-block {
