@@ -38,17 +38,17 @@ read_time: false
       </path>
     </svg>
   
-    <!-- Front wave -->
+     <!-- Front wave -->
     <svg class="wave wave-front" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120" preserveAspectRatio="none">
       <path fill="#FAFAFA" fill-opacity="1"
-            d="M0,90 C360,60 720,80 1080,55 C1440,30 1440,120 0,120 Z">
+            d="M0,90 C360,60 720,80 1080,55 C1440,60 1440,120 0,120 Z">
         <animate attributeName="d"
                  dur="10s"
                  repeatCount="indefinite"
                  values="
-                 M0,90 C360,60 720,80 1080,55 C1440,30 1440,120 0,120 Z;
-                 M0,120 C360,90 720,110 1080,85 C1440,60 1440,120 0,120 Z;
-                 M0,90 C360,60 720,80 1080,55 C1440,30 1440,120 0,120 Z" />
+                 M0,90 C360,60 720,80 1080,55 C1440,60 1440,120 0,120 Z;
+                 M0,95 C360,65 720,85 1080,60 C1440,65 1440,120 0,120 Z;
+                 M0,90 C360,60 720,80 1080,55 C1440,60 1440,120 0,120 Z" />
       </path>
     </svg>
   </div>
