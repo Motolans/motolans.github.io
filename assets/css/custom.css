@@ -37,6 +37,8 @@
 
 .wave {
   animation: waveMove 10s linear infinite;
+  bottom: 0;
+  height: 100%;
 }
 
 .wave-back {
