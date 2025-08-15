@@ -31,7 +31,7 @@
   position: absolute;
   bottom: 0;
   left: 0;
-  width: 100%;
+  width: 200%;
   height: 100%;
 }
 
@@ -44,11 +44,13 @@
 .wave-back {
   z-index: 1;
   opacity: 0.6;
+  animation-duration: 18s;
 }
 
 .wave-front {
   z-index: 2;
   opacity: 1;
+  animation-duration: 10s;
 }
 
 @keyframes waveMove {
@@ -56,17 +58,11 @@
     transform: translateX(0);
   }
   100% {
-    transform: translateX(-100%);
+    transform: translateX(-50%);
   }
 }
 
-.wave-back path {
-  animation: waveMove 18s linear infinite;
-}
 
-.wave-front path {
-  animation: waveMove 10s linear infinite;
-}
 
 /* ===== SUBTLE DOTTED PATTERN ===== */
 .hero::before {
