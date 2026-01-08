@@ -19,7 +19,7 @@ read_time: false
       <span id="typed-text" class="typed-text"></span>
     </div>
 
-    <p>Writing, analysis, and experimentation from the intersection of journalism and logic.</p>
+    <p>Writing, analysis, and experimentation from the intersection of journalism and development.</p>
   </div>
 
     <!-- Wave Container -->
