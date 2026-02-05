@@ -47,7 +47,7 @@ The client needed original, data-backed content that could:
 ---
 
 <h2 class="section-header"><span class="material-symbols-outlined" style="color: #1e3a8a;">link</span> Links & Samples </h2>     
-- [State Recession Readiness](#https://www.nationalbusinesscapital.com/data-reports/states-least-likely-to-survive-recession/)    
+- [State Recession Readiness]((https://www.nationalbusinesscapital.com/data-reports/states-least-likely-to-survive-recession/))    
 
 ---
 
