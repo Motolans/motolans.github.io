@@ -24,8 +24,8 @@ The client needed original, data-backed content that could:
 
 ---
 
-<h2 class="section-header"><span class="material-symbols-outlined" style="color: #1e3a8a;">account_circle</span> My Role </h2>     
-- Performed research and wrote article drafts    
+<h2 class="section-header"><span class="material-symbols-outlined" style="color: #1e3a8a;">account_circle</span> My Role & Challenges</h2>     
+- Structured multiple datasets, identified key metrics, and ranked states and cities by various criteria   
 - Queried datasets from government (SBA, BLS) and private APIs    
 - Cleaned and analyzed data using **R, Excel, and SQL**    
 - Created visualizations using **Datawrapper and Tableau**    
@@ -49,7 +49,8 @@ The client needed original, data-backed content that could:
 ---
 
 <h2 class="section-header"><span class="material-symbols-outlined" style="color: #1e3a8a;">link</span> Links & Samples </h2>     
-- [State Recession Readiness](https://www.nationalbusinesscapital.com/data-reports/states-least-likely-to-survive-recession/)    
+- [Full State Recession Readiness Report](https://www.nationalbusinesscapital.com/data-reports/states-least-likely-to-survive-recession/)
+- [Full Housing Affordability Report](https://www.nationalbusinesscapital.com/data-reports/10-places-to-buy-a-home-in-2024/)
 
 ---
 
