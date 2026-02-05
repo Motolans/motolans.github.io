@@ -19,7 +19,7 @@ read_time: false
       <span id="typed-text" class="typed-text"></span>
     </div>
 
-    <p>Writing, analysis, and experimentation from the intersection of journalism and development.</p>
+    <p>I help teams make sense of complex systems with interactive models and narrative structure.</p>
   </div>
 
     <!-- Wave Container -->
@@ -55,7 +55,7 @@ read_time: false
 </section>
 
 <h2 class="section-header"><span class="material-symbols-outlined" style="color: #1e3a8a;">folder_check</span> Featured Work</h2>  
-- **[Data Journalism](portfolio/economic-trends/)** – Data analysis for mass audiences  
-- **[Game Design](portfolio/game-design/)** – Experimental puzzle game based on musical chords
-- **[SEO-focused Writing](portfolio/small-business-writing/)** - Revenue-generating posts and reviews 
+- **[Data-driven stories](portfolio/economic-trends/)** – Data analysis for mass audiences  
+- **[Systems for play](portfolio/game-design/)** – Experimental puzzle game based on musical chords
+- **[Constraint-bound messaging](portfolio/small-business-writing/)** - Revenue-generating posts and reviews 
 
