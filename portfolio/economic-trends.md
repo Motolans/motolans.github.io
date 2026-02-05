@@ -12,6 +12,8 @@ toc: true
 <h2 class="section-header"> Overview  </h2>     
 At National Business Capital, I led a data journalism initiative focused on analyzing **U.S. small business lending trends**. The goal was to produce original research that both educated readers and improved SEO/domain authority.
 
+<img src="/assets/images/State_Stats.png" alt="data report" style="width: 100%; border-radius: 8px;" />
+
 ---
 
 <h2 class="section-header"><span class="material-symbols-outlined" style="color: #1e3a8a;">question_exchange</span> Problem </h2>     
