@@ -52,6 +52,8 @@ The client needed original, data-backed content that could:
 - [Full State Recession Readiness Report](https://www.nationalbusinesscapital.com/data-reports/states-least-likely-to-survive-recession/)
 - [Full Housing Affordability Report](https://www.nationalbusinesscapital.com/data-reports/10-places-to-buy-a-home-in-2024/)
 
+<img src="/assets/images/Affordable_Cities.png" alt="data report" style="width: 100%; border-radius: 8px;" />
+
 ---
 
 <h2><span class="material-symbols-outlined" style="color: #1e3a8a;">psychology</span> Notes / Reflections</h2>
