@@ -8,11 +8,16 @@ sidebar:
   nav: "main"
 toc: true
 ---
-I’m a data journalist, analyst, game designer, and writer specializing in financial, medical, and tech topics.
+I help teams and audiences understand complex systems through stories, data, and interactive mechanics.
 
-My skill set straddles the line between technical and liberal arts. For me, this was just a natural progression of my interests and career path. People look at me funny when I tell them there's a lot of overlap between writing code and writing text, but in both cases, you need to apply logic and syntax to create content or solve a problem. The relationship is even more cogent in the age of AI prompting, where "natural language" is tokenized and parsed mathematically by an LLM. 
+Over the past decade, I’ve translated messy, ambiguous data into audience-facing insights, produced analysis-driven reports for financial and business contexts, and guided interactive game projects where every design choice carried real consequences. Along the way, I’ve navigated both highly constrained SEO brief-driven formats and open-ended systems challenges — learning how to identify hidden risks and make decisions that matter.
 
-All of this is an outgrowth of my love of dabbling and experimentation. 
+Mostly, I turn complexity into clarity. If you want someone who can help build or add clarity to your systems, let's talk.
+
+**Specialties:**
+**Data & Analysis:** Python, R, SQL, spreadsheets
+**Interactive Systems:** Game mechanics, level design
+**Content & Communication:** Writing, editing, interviews
 
 <img src="/assets/images/sketch_profile.png" alt="Me" style="width: 180px; border-radius: 100px; float: right; margin: 0 0 1rem 1.5rem;" />
 
