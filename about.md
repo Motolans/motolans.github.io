@@ -14,6 +14,6 @@ My skill set straddles the line between technical and liberal arts. For me, this
 
 All of this is an outgrowth of my love of dabbling and experimentation. 
 
-<img src="/assets/images/ProfilePic.jpg" alt="Photo of Christopher Motola" style="width: 180px; border-radius: 100px; float: right; margin: 0 0 1rem 1.5rem;" />
+<img src="/assets/images/sketch_profile.png" alt="Me" style="width: 180px; border-radius: 100px; float: right; margin: 0 0 1rem 1.5rem;" />
 
 
