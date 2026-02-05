@@ -19,7 +19,7 @@ read_time: false
       <span id="typed-text" class="typed-text"></span>
     </div>
 
-    <p>I help teams make sense of complex systems with interactive models and narrative structure.</p>
+    <p>I build clarity in complex systems through narrative and interactive design.</p>
   </div>
 
     <!-- Wave Container -->
