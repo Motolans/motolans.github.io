@@ -15,8 +15,11 @@ Over the past decade, I’ve translated messy, ambiguous data into audience-faci
 Mostly, I turn complexity into clarity. If you want someone who can help build or add clarity to your systems, let's talk.
 
 **Specialties:**
+
 **Data & Analysis:** Python, R, SQL, spreadsheets
+
 **Interactive Systems:** Game mechanics, level design
+
 **Content & Communication:** Writing, editing, interviews
 
 <img src="/assets/images/sketch_profile.png" alt="Me" style="width: 180px; border-radius: 100px; float: right; margin: 0 0 1rem 1.5rem;" />
