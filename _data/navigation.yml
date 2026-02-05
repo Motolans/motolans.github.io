@@ -1,12 +1,12 @@
 # main links
 main:
-  - title: "Portfolio"
+  - title: "Work"
     url: /portfolio/
   - title: "About"
     url: /about/
   - title: "Now"
     url: /now/
-  - title: "Blog"
+  - title: "Thoughts"
     url: /blog/
   - title: "Contact"
     url: /contact/
