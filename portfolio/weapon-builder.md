@@ -58,6 +58,6 @@ In each level, a musical chord plays in the background. Players are then present
 
 ---
 
-## <span class="material-symbols-outlined" style="color: #1e3a8a;">psychology</span> Notes / Reflections
+<span class="material-symbols-outlined" style="color: #1e3a8a;">psychology</span> Notes / Reflections
 Resource constraints encouraged the small team to come up with novel solutions to challenges that arose during development. To this day it remains the only project I've worked on that was primarily sound-driven, which provided a unique opportunity to make the sound designer a core part of the system design process. 
 
