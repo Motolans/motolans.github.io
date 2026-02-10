@@ -17,6 +17,11 @@ Here's a spreadsheet-based tool I built for a game I'm currently developing. We 
 
 
 <img src="/assets/images/w_builder_selector.png" alt="data report" style="width: 100%; border-radius: 8px;" />
+
+<a href="/assets/images/string-theory-1.png" data-lightbox="game-gallery" data-title="Main menu and title screen" style="flex: 1 1 100%; max-width: 100%;">
+    <img src="/assets/images/string-theory-1.png" alt="Main menu" style="width: 100%; border-radius: 8px;" />
+</a>
+
 We needed a novel design concept for a music-based game. At the time, most music games were effectively rhythm games that challenged players to identify and sync with a beat. 
 
 We decided to test out the concept of a chord-based game that would help train the player's ear. 
