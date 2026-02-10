@@ -15,8 +15,8 @@ Here's a spreadsheet-based tool I built for a game I'm currently developing. We 
 
 <h2 class="section-header"><span class="material-symbols-outlined" style="color: #1e3a8a;">construction</span> What's It Do?</h2>
 
-<a href="/assets/images/weapon_builder_selector.pdf" data-lightbox="game-gallery" data-title="Main menu and title screen" style="flex: 1 1 100%; max-width: 100%;">
-    <img src="/assets/images/weapon_builder_selector.pdf" alt="Weapon Selector" style="width: 100%; border-radius: 8px;" />
+<a href="/assets/images/weapon_checker_0.pdf" data-lightbox="game-gallery" data-title="Main menu and title screen" style="flex: 1 1 100%; max-width: 100%;">
+    <img src="/assets/images/weapon_checker_0.pdf" alt="Weapon Selector" style="width: 100%; border-radius: 8px;" />
 </a>
 
 We needed a novel design concept for a music-based game. At the time, most music games were effectively rhythm games that challenged players to identify and sync with a beat. 
