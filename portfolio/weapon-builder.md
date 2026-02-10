@@ -13,7 +13,7 @@ Here's a spreadsheet-based tool I built for a game I'm currently developing. We 
 
 ---
 
-<h2 class="section-header"><span class="material-symbols-outlined" style="color: #1e3a8a;">lightbulb</span> Concept</h2>
+<h2 class="section-header"><span class="material-symbols-outlined" style="color: #1e3a8a;">construction</span> What's It Do?</h2>
 
 
 <img src="/assets/images/w_builder_selector.png" alt="data report" style="width: 100%; border-radius: 8px;" />
