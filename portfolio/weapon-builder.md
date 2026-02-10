@@ -12,28 +12,11 @@ toc: true
 Here's a spreadsheet-based tool I built for a game I'm currently developing. We needed a smoother pipeline for the team to rapidly iterate on item stats outside of the main build. It needed to offer quick, visual comparisons for human eyeballs, as well as export the data in a form that could be easily imported into the game engine.
 
 ---
-<div style="display: flex; flex-wrap: wrap; gap: 16px; justify-content: center;">
-
-  <a href="/assets/images/string-theory-1.png" data-lightbox="game-gallery" data-title="Main menu and title screen" style="flex: 1 1 45%; max-width: 45%;">
-    <img src="/assets/images/string-theory-1.png" alt="Main menu" style="width: 100%; border-radius: 8px;" />
-  </a>
-
-  <a href="/assets/images/string-theory-2.png" data-lightbox="game-gallery" data-title="Core puzzle interface with logic wires" style="flex: 1 1 45%; max-width: 45%;">
-    <img src="/assets/images/string-theory-2.png" alt="Puzzle interface" style="width: 100%; border-radius: 8px;" />
-  </a>
-
-  <a href="/assets/images/string-theory-3.png" data-lightbox="game-gallery" data-title="Progression map and difficulty levels" style="flex: 1 1 45%; max-width: 45%;">
-    <img src="/assets/images/string-theory-3.png" alt="Progression map" style="width: 100%; border-radius: 8px;" />
-  </a>
-
-  <a href="/assets/images/string-theory-4.png" data-lightbox="game-gallery" data-title="Settings screen with audio controls" style="flex: 1 1 45%; max-width: 45%;">
-    <img src="/assets/images/string-theory-4.png" alt="Settings screen" style="width: 100%; border-radius: 8px;" />
-  </a>
-
-</div>
 
 <h2 class="section-header"><span class="material-symbols-outlined" style="color: #1e3a8a;">lightbulb</span> Concept</h2>
-<div class="callout-block">
+
+
+<img src="/assets/images/w_builder_selector.png" alt="data report" style="width: 100%; border-radius: 8px;" />
 We needed a novel design concept for a music-based game. At the time, most music games were effectively rhythm games that challenged players to identify and sync with a beat. 
 
 We decided to test out the concept of a chord-based game that would help train the player's ear. 
