@@ -19,10 +19,20 @@ Here's a spreadsheet-based tool I built for a game I'm currently developing. We 
     <img src="/assets/images/weapon_checker_0.png" alt="Weapon Selector" style="width: 100%; border-radius: 8px;" />
 </a>
 
+The Weapon/Ability Builder allows our designers to quickly compare and modify the stats of items in our game (TBA). It also serves as an out-of-engine master list for weapons and abilities. 
+
 <video controls width="100%" poster="/assets/images/weapon_checker_0.png">
   <source src="/assets/videos/w_checker.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
+
+The Weapon Growth Checker:
+- Populates a dropdown menu with every weapon created so far.
+- Shows the color affinity of that weapon (red, blue, yellow, purple, green, orange, or black)
+- Shows stat growth by weapon level
+- Dynamically updates abilities assigned to the weapon (poison, knockback, etc.)
+- Allows the designer to toggle color-based modifiers, dynamically updating stats
+- Compare damage output to that of another weapon
 
 ---
 
