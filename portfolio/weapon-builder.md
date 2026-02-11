@@ -42,6 +42,14 @@ The Weapon Growth Checker:
   Your browser does not support the video tag.
 </video>
 
+Designers add stats in the Automated Weapon Template or Manual Weapon Template. Here, they assign the weapon a color. Each stat gets a base value and an increment value. From a pulldown menu, designers can select the weapon levels at which the staff increments. For example, in the video above, the Icicle weapon is assigned a base value of 5 damage. Damage grows by 2 on each odd level.
+
+If we go back to the Weapon Growth Checker we see:
+
+<a href="/assets/images/weapon_checker_0.png" data-lightbox="game-gallery" data-title="Main menu and title screen" style="flex: 1 1 100%; max-width: 100%;">
+    <img src="/assets/images/weapon_checker_0.png" alt="Weapon Selector" style="width: 100%; border-radius: 8px;" />
+</a>
+
 ---
 
 <h2 class="section-header"><span class="material-symbols-outlined" style="color: #1e3a8a;">build</span> Tools & Technologies </h2>
