@@ -19,11 +19,10 @@ Here's a spreadsheet-based tool I built for a game I'm currently developing. We 
     <img src="/assets/images/weapon_checker_0.png" alt="Weapon Selector" style="width: 100%; border-radius: 8px;" />
 </a>
 
-We needed a novel design concept for a music-based game. At the time, most music games were effectively rhythm games that challenged players to identify and sync with a beat. 
-
-We decided to test out the concept of a chord-based game that would help train the player's ear. 
-
-In each level, a musical chord plays in the background. Players are then presented with a series of strings, each of which plays a note when touched. To pass the level, players need to cut the strings that play notes incongruent with the background music. </div>
+<video controls width="100%" poster="/assets/images/weapon_checker_0.png">
+  <source src="/assets/videos/w_checker.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
 
 ---
 
