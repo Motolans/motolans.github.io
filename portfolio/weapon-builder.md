@@ -37,8 +37,8 @@ The Weapon Growth Checker:
 ---
 
 <h2 class="section-header"><span class="material-symbols-outlined" style="color: #1e3a8a;">add_box</span> Adding Stats </h2> 
-<video controls width="100%" poster="/assets/images/weapon_checker_0.png">
-  <source src="/assets/videos/w_checker.mp4" type="video/mp4">
+<video controls width="100%">
+  <source src="/assets/videos/w_adder.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
 
