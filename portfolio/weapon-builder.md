@@ -46,8 +46,8 @@ Designers add stats in the Automated Weapon Template or Manual Weapon Template. 
 
 If we go back to the Weapon Growth Checker we see:
 
-<a href="/assets/images/weapon_checker_0.png" data-lightbox="game-gallery" data-title="Main menu and title screen" style="flex: 1 1 100%; max-width: 100%;">
-    <img src="/assets/images/weapon_checker_0.png" alt="Weapon Selector" style="width: 100%; border-radius: 8px;" />
+<a href="/assets/images/weapon_adder_check" data-lightbox="game-gallery" data-title="Main menu and title screen" style="flex: 1 1 100%; max-width: 100%;">
+    <img src="/assets/images/weapon_adder_check.png" alt="Weapon Selector" style="width: 100%; border-radius: 8px;" />
 </a>
 
 ---
