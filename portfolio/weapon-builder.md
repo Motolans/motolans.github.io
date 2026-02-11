@@ -13,7 +13,7 @@ Here's a spreadsheet-based tool I built for a game I'm currently developing. We 
 
 ---
 
-<h2 class="section-header"><span class="material-symbols-outlined" style="color: #1e3a8a;">construction</span> What's It Do?</h2>
+<h2 class="section-header"><span class="material-symbols-outlined" style="color: #1e3a8a;">eye_tracking</span> What's It Do?</h2>
 
 <a href="/assets/images/weapon_checker_0.png" data-lightbox="game-gallery" data-title="Main menu and title screen" style="flex: 1 1 100%; max-width: 100%;">
     <img src="/assets/images/weapon_checker_0.png" alt="Weapon Selector" style="width: 100%; border-radius: 8px;" />
@@ -36,11 +36,11 @@ The Weapon Growth Checker:
 
 ---
 
-<h2 class="section-header"><span class="material-symbols-outlined" style="color: #1e3a8a;">account_circle</span> My Role </h2> 
-- Co-designed concept and system 
-- Served as lead programmer and wrote most of the code  
-- Implemented art and sound assets
-- Fixed bugs
+<h2 class="section-header"><span class="material-symbols-outlined" style="color: #1e3a8a;">add_box</span> Adding Stats </h2> 
+<video controls width="100%" poster="/assets/images/weapon_checker_0.png">
+  <source src="/assets/videos/w_checker.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
 
 ---
 
