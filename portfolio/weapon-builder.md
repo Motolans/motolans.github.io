@@ -68,5 +68,5 @@ The data is ultimately exported via App Script to JSON, where it can then be imp
 
 ---
 
-<span class="material-symbols-outlined" style="color: #1e3a8a;">psychology</span> Notes / Reflections
+<h2><span class="material-symbols-outlined" style="color: #1e3a8a;">psychology</span> Notes / Reflections</h2>
 Building pipeline infrastructure turned out to be an area where I could quickly add value with this project. A spreadsheet-based tool forces you to think of how to bridge the gaps between GSheets' functional programming paradigm and the engine's imperative one. Initially, I'd leaned more heavily on Apps Script for functionality, but ended up rebuilding the tool entirely with spreadsheet functions (save the export code). It's a lot faster and more stable this way.
