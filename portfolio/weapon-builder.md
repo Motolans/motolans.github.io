@@ -27,12 +27,12 @@ The Weapon/Ability Builder allows our designers to quickly compare and modify th
 </video>
 
 The Weapon Growth Checker:
-- Populates a dropdown menu with every weapon created so far.
+- Populates a dropdown menu with every weapon created so far
 - Shows the color affinity of that weapon (red, blue, yellow, purple, green, orange, or black)
 - Shows stat growth by weapon level
 - Dynamically updates abilities assigned to the weapon (poison, knockback, etc.)
 - Allows the designer to toggle color-based modifiers, dynamically updating stats
-- Compare damage output to that of another weapon
+- Compares damage output to that of another selected weapon
 
 ---
 
