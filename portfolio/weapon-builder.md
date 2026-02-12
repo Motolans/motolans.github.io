@@ -52,6 +52,16 @@ If we go back to the Weapon Growth Checker we see:
 
 ---
 
+<h2 class="section-header"><span class="material-symbols-outlined" style="color: #1e3a8a;">valve</span> Output</h2>
+
+The data is ultimately exported via AppScript to JSON, where it can then be imported into the game engine.
+
+<a href="/assets/images/weapon_checker_0.png" data-lightbox="game-gallery" data-title="Main menu and title screen" style="flex: 1 1 100%; max-width: 100%;">
+    <img src="/assets/images/weapon_checker_0.png" alt="Weapon Selector" style="width: 100%; border-radius: 8px;" />
+</a>
+
+---
+
 <h2 class="section-header"><span class="material-symbols-outlined" style="color: #1e3a8a;">build</span> Tools & Technologies </h2>
 - **Languages:** GML
 - **Game Engine:** GameMaker Studio 
