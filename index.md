@@ -57,5 +57,6 @@ read_time: false
 <h2 class="section-header"><span class="material-symbols-outlined" style="color: #1e3a8a;">folder_check</span> Featured Work</h2>  
 - **[Data-driven stories](portfolio/economic-trends/)** – Data analysis for mass audiences  
 - **[Systems for play](portfolio/game-design/)** – Experimental puzzle game based on musical chords
+- **[Infrastructure for development](portfolio/weapon-buildier/)** – Spreadsheet-based tool for game item creation
 - **[Constraint-bound messaging](portfolio/small-business-writing/)** - Revenue-generating posts and reviews 
 
