@@ -54,22 +54,19 @@ If we go back to the Weapon Growth Checker we see:
 
 <h2 class="section-header"><span class="material-symbols-outlined" style="color: #1e3a8a;">valve</span> Output</h2>
 
-The data is ultimately exported via AppScript to JSON, where it can then be imported into the game engine.
+The data is ultimately exported via App Script to JSON, where it can then be imported into the game engine.
 
-<a href="/assets/images/weapon_checker_0.png" data-lightbox="game-gallery" data-title="Main menu and title screen" style="flex: 1 1 100%; max-width: 100%;">
-    <img src="/assets/images/weapon_checker_0.png" alt="Weapon Selector" style="width: 100%; border-radius: 8px;" />
+<a href="/assets/images/json_output.png" data-lightbox="json_output" data-title="Output" style="flex: 1 1 100%; max-width: 100%;">
+    <img src="/assets/images/json_output.png" alt="JSON output" style="width: 100%; border-radius: 8px;" />
 </a>
 
 ---
 
 <h2 class="section-header"><span class="material-symbols-outlined" style="color: #1e3a8a;">build</span> Tools & Technologies </h2>
-- **Languages:** GML
-- **Game Engine:** GameMaker Studio 
-- **Platform:** PC (Steam) 
-- **Collab Tools:** Git
+- **Tool:** Google Sheets
+- **Languages:** Apps Script 
 
 ---
 
 <span class="material-symbols-outlined" style="color: #1e3a8a;">psychology</span> Notes / Reflections
-Resource constraints encouraged the small team to come up with novel solutions to challenges that arose during development. To this day it remains the only project I've worked on that was primarily sound-driven, which provided a unique opportunity to make the sound designer a core part of the system design process. 
-
+Building pipeline infrastructure turned out to be an area where I could quickly add value with this project. A spreadsheet-based tool forces you to think of how to bridge the gaps between GSheets' functional programming paradigm and the engine's imperative one. Initially, I'd leaned more heavily on Apps Script for functionality, but ended up rebuilding the tool entirely with spreadsheet functions (save the export code). It's a lot faster and more stable this way.
