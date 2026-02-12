@@ -46,10 +46,10 @@ Welcome to my work. I specialize in **data journalism, analysis, and system desi
 
 ---
 
-### <span class="material-symbols-outlined" style="color: #1e3a8a;">joystick</span> Game Pipeline Tool: Weapon/Ability Builder   
+### <span class="material-symbols-outlined" style="color: #1e3a8a;">plumbing</span> Game Pipeline Tool: Weapon/Ability Builder   
 **Role:** Producer / Technical Game Designer    
 **Skills:** Programming, scripting, systems design, project management, source control  
-[→ Learn More](/portfolio/weapon=builder/)  
+[→ Learn More](/portfolio/weapon-builder/)  
 {: style="margin-bottom: 0;"}
 <div class ="portfolio-callout-block">
   <strong>Summary: </strong>Built a spreadsheet-based item design tool for a game currently in development.
