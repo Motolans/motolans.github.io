@@ -63,7 +63,7 @@ The data is ultimately exported via App Script to JSON, where it can then be imp
 ---
 
 <h2 class="section-header"><span class="material-symbols-outlined" style="color: #1e3a8a;">build</span> Tools & Technologies </h2>
-- **Tool:** Google Sheets
+- **Tools:** Google Sheets
 - **Languages:** Apps Script 
 
 ---
