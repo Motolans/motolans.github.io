@@ -59,7 +59,7 @@ Welcome to my work. I specialize in **data journalism, analysis, and system desi
 
 ### <span class="material-symbols-outlined" style="color: #1e3a8a;">target</span> Copywriting/SEO-driven Content  
 **Role:** Writer    
-**Skills:** Writing, research, SEO, editing, analysis of studies
+**Skills:** Writing, research, SEO, editing, analysis of studies  
 [→ View Article](https://www.robertkinglawfirm.com/mass-torts/ultra-processed-foods-lawsuit/are-processed-foods-addictive-to-kids-and-teens/)) | [→ Learn More](/portfolio/law-firm-seo/)  
 {: style="margin-bottom: 0;"}
 <div class ="portfolio-callout-block">
