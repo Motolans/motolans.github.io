@@ -19,7 +19,7 @@ read_time: false
       <span id="typed-text" class="typed-text"></span>
     </div>
 
-    <p>I build clarity in complex systems through narrative and interactive design.</p>
+    <p>Clarifying complex systems through narrative and interactive design.</p>
   </div>
 
     <!-- Wave Container -->
