@@ -6,8 +6,8 @@ date: 2026-03-03
 tags: [llm, ai, patterns]
 ---
 
-<a href="/assets/images/stock-photo.jpg" data-featherlight="image">
-  <img src="/assets/images/stock-photo.jpg" alt="A free stock photo. I think it's nice." style="max-width: 100%; height: auto;" />
+<a href="/assets/images/workflow_diagram.png" data-featherlight="image">
+  <img src="/assets/images/workflow_diagram.jpg" alt="A typical LLM workflow" style="max-width: 100%; height: auto;" />
 </a>
 
 The cardinal sin of the current AI era is, in my opinion, the mystification of process. Mystification breeds both wonder and fear of fraud, each well-justified. Tech has always presented itself as a kind of sorcery to the end user, but neural networks add an entire new layer of opacity; even for engineers, cracking open a single node in a neural net won’t tell you too much about what decisions the whole network is making. This is also what’s so interesting about LLMs; it’s very different than working with other machines, where you are the pattern-matcher and the program is a tool that reliably executes the instructions it’s given. 
