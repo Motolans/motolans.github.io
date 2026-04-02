@@ -64,7 +64,43 @@
   }
   .nav-links a:hover { color: var(--text-primary); }
 
-  /* HERO */
+.page {
+  max-width: 100% !important;
+  padding: 0 !important;
+}
+
+.page__inner-wrap {
+  max-width: 100% !important;
+  padding: 0 !important;
+}
+
+.landing-page * {
+  box-sizing: border-box;
+}
+
+.landing-page {
+  background: var(--bg);
+  color: var(--text-primary);
+  font-family: system-ui, sans-serif;
+}
+
+.landing-page .masthead {
+  display: none;
+}
+
+.landing-page .page__content {
+  margin: 0;
+  padding: 0;
+}
+
+.landing-page section {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 20px;
+}
+
+/* HERO */
   .hero {
     position: relative;
     min-height: 100vh;
