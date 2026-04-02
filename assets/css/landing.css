@@ -77,14 +77,9 @@
   padding: 0 !important;
 }
 
-.landing-page * {
-  box-sizing: border-box;
-}
 
 .landing-page {
   padding-top: 80px;
-  background: var(--bg);
-  color: var(--text-primary);
   font-family: var(--font-body);
 }
 
