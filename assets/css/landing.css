@@ -66,13 +66,17 @@
 
   /* HERO */
   .hero {
+    max-width: 700px;
+    width: min(90%, 700px);
+    margin: 6rem auto 4rem auto;
+    text-align: center;
     position: relative;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 8rem 3rem 5rem;
-    overflow: hidden;
+    padding: 0 1rem;   // prevents edge clipping on mobile
+    overflow: anywhere;
   }
   #hero-canvas {
     position: absolute;
@@ -129,6 +133,10 @@
     gap: 1.5rem;
     flex-wrap: wrap;
   }
+
+.hero h1 {
+  word-break: break-word;
+}
   .btn-primary {
     display: inline-flex;
     align-items: center;
