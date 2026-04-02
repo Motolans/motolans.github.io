@@ -79,8 +79,9 @@
 
 
 .landing-page {
+  all: initial;
   padding-top: 80px;
-  font-family: var(--font-body);
+  font-family: system-ui, sans-serif;
 }
 
 .landing-page .masthead {
