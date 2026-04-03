@@ -341,10 +341,12 @@
 
 .work-card-client { 
   font-size: 13px; 
-  color: var(--text-muted); 
+  color: var(--text-muted);
+  font-family: var(--font-body); 
 } 
 
-.work-card-summary { 
+.work-card-summary {
+  font-family: var(--font-body); 
   font-size: 14px; 
   font-weight: 300; 
   color: var(--text-secondary); 
@@ -380,7 +382,8 @@
   text-decoration: none; 
   margin-top: 0.25rem; 
   width: fit-content; 
-  transition: gap 0.2s; 
+  transition: gap 0.2s;
+  font-family: var(--font-body);  /* consistent body font for card links */
 } 
 .work-card-link:hover { gap: 0.65rem; }
 
