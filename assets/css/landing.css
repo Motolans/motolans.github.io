@@ -30,6 +30,12 @@
     -webkit-font-smoothing: antialiased;
   }
 
+  .masthead,
+  .greedy-nav,
+  .site-header{
+    display: none !important;
+  }
+
   /* NAV */
   nav {
     position: fixed;
