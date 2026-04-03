@@ -70,12 +70,14 @@
     width: min(90%, 700px);
     margin: 6rem auto 4rem auto;
     text-align: center;
+    align-items: center;
     position: relative;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     padding: 0 1rem;   // prevents edge clipping on mobile
+    box-sizing: border-box;
     overflow: anywhere;
   }
   #hero-canvas {
@@ -86,7 +88,10 @@
   }
   .hero-inner {
     position: relative;
-    max-width: 860px;
+    max-width: 900px;
+    width: 100%;
+    text-align: center;
+    margin: 0 auto;
   }
   .hero-label {
     font-family: var(--font-mono);
@@ -120,12 +125,13 @@
     color: var(--accent);
   }
   .hero-tagline {
-    font-size: 1.2rem;
+    font-size: clamp(1rem, 1.5vw, 1.4rem);
+    max-width: 700px;
+    margin: 1rem auto 0;
     font-weight: 300;
     color: var(--text-secondary);
-    max-width: 560px;
     line-height: 1.6;
-    margin-bottom: 2.5rem;
+
   }
   .hero-actions {
     display: flex;
