@@ -120,6 +120,8 @@
     color: var(--text-primary);
     margin-bottom: 1.5rem;
     white-space: nowrap;
+    word-break: keep-all;
+    overflow-wrap: normal;
   }
   .hero-name em {
     font-style: italic;
