@@ -119,10 +119,15 @@
     letter-spacing: -0.01em;
     color: var(--text-primary);
     margin-bottom: 1.5rem;
+    white-space: nowrap;
   }
   .hero-name em {
     font-style: italic;
     color: var(--accent);
+  }
+
+  .hero-name .line{
+    display: block;
   }
   .hero-tagline {
     font-size: clamp(1rem, 1.5vw, 1.4rem);
