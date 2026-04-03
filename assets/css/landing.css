@@ -65,21 +65,25 @@
   .nav-links a:hover { color: var(--text-primary); }
 
   /* HERO */
-  .hero {
-    max-width: 700px;
-    width: min(90%, 700px);
-    margin: 6rem auto 4rem auto;
-    text-align: center;
-    align-items: center;
-    position: relative;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 0 1rem;   // prevents edge clipping on mobile
-    box-sizing: border-box;
-    overflow: anywhere;
-  }
+.hero {
+  width: 100%;
+  max-width: 1000px;        /* give it more room */
+  margin: 6rem auto 4rem auto;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  min-height: 100vh;
+  padding: 0 2rem;
+  box-sizing: border-box;
+
+  text-align: center;
+  position: relative;
+
+  overflow: visible;        /* critical fix */
+}
   #hero-canvas {
     position: absolute;
     inset: 0;
