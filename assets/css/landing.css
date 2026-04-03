@@ -362,6 +362,33 @@
   border-top: 1px solid var(--border);
 } 
 
+/* Force the fonts on all text elements inside work cards */
+.work-card .work-card-type,
+.work-card .work-card-title,
+.work-card h3,
+.work-card .work-card-client,
+.work-card .work-card-summary,
+.work-card .skill-pill,
+.work-card .work-card-link {
+  font-family: inherit !important;  /* ensures our font overrides theme defaults */
+}
+
+.work-card .work-card-title,
+.work-card h3 {
+  font-family: var(--font-display) !important;
+}
+
+.work-card .work-card-type,
+.work-card .skill-pill {
+  font-family: var(--font-mono) !important;
+}
+
+.work-card .work-card-client,
+.work-card .work-card-summary,
+.work-card .work-card-link {
+  font-family: var(--font-body) !important;
+}
+
 .skill-pill { 
   font-family: var(--font-mono); 
   font-size: 11px; 
