@@ -389,6 +389,13 @@
   font-family: var(--font-body) !important;
 }
 
+.work-card-summary,
+.work-card-client {
+  max-width: 38em; /* roughly 600px at normal font size */
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .skill-pill { 
   font-family: var(--font-mono); 
   font-size: 11px; 
