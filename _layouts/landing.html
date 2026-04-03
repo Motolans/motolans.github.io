@@ -211,8 +211,25 @@ layout: default
   <div class="section-label">Contact</div>
   <h2 class="contact-heading">Let's find the<br><em>pattern together</em></h2>
   <p class="contact-sub">Available for freelance projects in data journalism, technical writing, medical &amp; legal content, and systems design.</p>
-  <!-- Replace with your actual email -->
-  <a href="mailto:your@email.com" class="contact-email">your@email.com</a>
+
+  <form action="https://formspree.io/f/xgopnlwa" method="POST" id="contact-form" style="max-width:480px;margin:0 auto 2.5rem;text-align:left;">
+    <div style="display:flex;flex-direction:column;gap:0.75rem;">
+      <input type="text" name="name" placeholder="Your name" required
+        style="background:var(--surface);border:1px solid var(--border);color:var(--text-primary);font-family:var(--font-body);font-size:14px;padding:0.75rem 1rem;outline:none;transition:border-color 0.2s;width:100%;"
+        onfocus="this.style.borderColor='var(--accent)'" onblur="this.style.borderColor='var(--border)'">
+      <input type="email" name="email" placeholder="Your email" required
+        style="background:var(--surface);border:1px solid var(--border);color:var(--text-primary);font-family:var(--font-body);font-size:14px;padding:0.75rem 1rem;outline:none;transition:border-color 0.2s;width:100%;"
+        onfocus="this.style.borderColor='var(--accent)'" onblur="this.style.borderColor='var(--border)'">
+      <textarea name="message" placeholder="What are you working on?" required rows="4"
+        style="background:var(--surface);border:1px solid var(--border);color:var(--text-primary);font-family:var(--font-body);font-size:14px;padding:0.75rem 1rem;outline:none;transition:border-color 0.2s;width:100%;resize:vertical;"
+        onfocus="this.style.borderColor='var(--accent)'" onblur="this.style.borderColor='var(--border)'"></textarea>
+      <button type="submit"
+        style="background:var(--accent);color:#0b0d12;font-family:var(--font-body);font-size:14px;font-weight:500;padding:0.75rem 1.75rem;border:none;cursor:pointer;letter-spacing:0.02em;transition:opacity 0.2s;align-self:flex-start;"
+        onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">Send message →</button>
+    </div>
+    <p id="form-status" style="margin-top:0.75rem;font-size:13px;color:var(--teal);display:none;">Message sent — I'll be in touch.</p>
+  </form>
+
   <div class="contact-links">
     <a href="/portfolio/" class="contact-link">All work</a>
     <a href="/blog/" class="contact-link">Thoughts</a>
@@ -229,6 +246,23 @@ layout: default
   const canvas = document.getElementById('hero-canvas');
   const ctx = canvas.getContext('2d');
   let W, H, particles = [], animId;
+  const form = document.getElementById('contact-form');
+  const status = document.getElementById('form-status');
+  if (form) {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const data = new FormData(form);
+      const res = await fetch(form.action, { method: 'POST', body: data, headers: { 'Accept': 'application/json' } });
+      if (res.ok) {
+        form.reset();
+        status.style.display = 'block';
+      } else {
+        status.textContent = 'Something went wrong — please try again.';
+        status.style.color = 'var(--accent)';
+        status.style.display = 'block';
+      }
+    });
+  }
 
   function resize() {
     W = canvas.width = canvas.offsetWidth;
