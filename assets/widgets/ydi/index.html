@@ -1,1 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>You Draw It</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      padding: 1.5rem 1rem;
+      font-family: Georgia, 'Times New Roman', serif;
+      background: #f9f7f4;
+      color: #1a1a1a;
+      max-width: 720px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* ── Color tokens (edit these to match your site) ── */
+    :root {
+      --bg-primary:    #f9f7f4;
+      --bg-secondary:  #f0ede8;
+      --bg-card:       #ffffff;
+      --border:        #ddd9d3;
+      --text-primary:  #1a1a1a;
+      --text-secondary:#555550;
+      --text-tertiary: #999890;
+      --accent:        #1D9E75;   /* change this to your brand color */
+      --drawn:         rgba(55, 138, 221, 0.75);
+      --zone:          rgba(55, 138, 221, 0.04);
+    }
+
+    button {
+      padding: 6px 14px;
+      font-size: 13px;
+      font-family: inherit;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      background: var(--bg-card);
+      color: var(--text-primary);
+      cursor: pointer;
+    }
+    button:disabled { opacity: 0.4; cursor: default; }
+    button:not(:disabled):hover { background: var(--bg-secondary); }
+  </style>
+</head>
+<body>
+
+<div id="root"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+
+<script>
+const { useState, useRef, useCallback, useEffect } = React;
+
+// ─────────────────────────────────────────────────────────────────────────────
+// YOUR DATA GOES HERE
+// Each object in this array is one question. Required fields:
+//   kicker      — small label, e.g. "Question 1 of 2"
+//   hed         — main headline / question
+//   dek         — one-sentence instruction
+//   yLabel      — Y axis label
+//   yMin/yMax   — Y axis range
+//   revealStart — the X value where drawing begins (must exist in data)
+//   insight     — text shown after reveal
+//   data        — array of { x, y } covering the full range
+// ─────────────────────────────────────────────────────────────────────────────
+const QUESTIONS = [
+  {
+    kicker:      "Question 1 of 2",
+    hed:         "How did unemployment change from 2000 to 2007?",
+    dek:         "Draw what you think the unemployment rate did after 2003.",
+    yLabel:      "Rate (%)",
+    yMin:        0,
+    yMax:        10,
+    revealStart: 2003,
+    insight:     "After peaking at 6% in 2003, unemployment fell steadily through 2007 as the economy recovered from the dot-com recession.",
+    data: [
+      { x: 2000, y: 4.0 },
+      { x: 2001, y: 4.7 },
+      { x: 2002, y: 5.8 },
+      { x: 2003, y: 6.0 },
+      { x: 2004, y: 5.5 },
+      { x: 2005, y: 5.1 },
+      { x: 2006, y: 4.6 },
+      { x: 2007, y: 4.6 },
+    ],
+  },
+  {
+    kicker:      "Question 2 of 2",
+    hed:         "What happened to unemployment during the 2008 financial crisis?",
+    dek:         "Draw what you think the unemployment rate did after 2008.",
+    yLabel:      "Rate (%)",
+    yMin:        0,
+    yMax:        12,
+    revealStart: 2008,
+    insight:     "The 2008 financial crisis drove unemployment from 5% to nearly 10% in just two years — one of the sharpest rises in postwar history.",
+    data: [
+      { x: 2006, y: 4.6 },
+      { x: 2007, y: 4.6 },
+      { x: 2008, y: 5.8 },
+      { x: 2009, y: 9.3 },
+      { x: 2010, y: 9.6 },
+      { x: 2011, y: 8.9 },
+      { x: 2012, y: 8.1 },
+    ],
+  },
+];
+
+// Title shown above the progress bar
+const TITLE = "US Labor Market · You Draw It";
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Layout constants — adjust if chart feels cramped or too loose
+// ─────────────────────────────────────────────────────────────────────────────
+const PAD = { l: 48, r: 16, t: 16, b: 36 };
+
+// ─────────────────────────────────────────────────────────────────────────────
+// useDrawIt — state hook (no need to edit this)
+// ─────────────────────────────────────────────────────────────────────────────
+function useDrawIt(question) {
+  const [drawn, setDrawn]       = useState([]);
+  const [revealed, setRevealed] = useState(false);
+  const isDrawing               = useRef(false);
+
+  const getEventCoords = useCallback((e, canvasEl) => {
+    const rect = canvasEl.getBoundingClientRect();
+    return [
+      (e.clientX - rect.left) * (canvasEl.width  / rect.width),
+      (e.clientY - rect.top)  * (canvasEl.height / rect.height),
+    ];
+  }, []);
+
+  const pixelToDomain = useCallback((cx, cy, canvasEl) => {
+    const { width: W, height: H } = canvasEl;
+    const chartW = W - PAD.l - PAD.r;
+    const chartH = H - PAD.t - PAD.b;
+    const xs   = question.data.map(d => d.x);
+    const xMin = xs[0], xMax = xs[xs.length - 1];
+    const x = xMin + ((cx - PAD.l) / chartW) * (xMax - xMin);
+    const y = question.yMax - ((cy - PAD.t) / chartH) * (question.yMax - question.yMin);
+    return [x, Math.max(question.yMin, Math.min(question.yMax, y))];
+  }, [question]);
+
+  const handlePointerDown = useCallback((e, canvasEl) => {
+    if (revealed) return;
+    const [cx, cy] = getEventCoords(e, canvasEl);
+    const [x] = pixelToDomain(cx, cy, canvasEl);
+    if (x >= question.revealStart) isDrawing.current = true;
+  }, [revealed, getEventCoords, pixelToDomain, question.revealStart]);
+
+  const handlePointerMove = useCallback((e, canvasEl) => {
+    if (!isDrawing.current || revealed) return;
+    const [cx, cy] = getEventCoords(e, canvasEl);
+    const [x, y]   = pixelToDomain(cx, cy, canvasEl);
+    if (x < question.revealStart) return;
+    setDrawn(prev => [...prev, { x, y }]);
+  }, [revealed, getEventCoords, pixelToDomain, question.revealStart]);
+
+  const handlePointerUp = useCallback(() => { isDrawing.current = false; }, []);
+  const clear  = useCallback(() => { if (!revealed) setDrawn([]); }, [revealed]);
+  const reveal = useCallback(() => setRevealed(true), []);
+
+  const drawProgress = useCallback(() => {
+    if (drawn.length === 0) return 0;
+    const xs     = question.data.map(d => d.x);
+    const xMax   = xs[xs.length - 1];
+    const drawnMax = Math.max(...drawn.map(d => d.x));
+    return Math.min(1, (drawnMax - question.revealStart) / (xMax - question.revealStart));
+  }, [drawn, question]);
+
+  const score = useCallback(() => {
+    if (drawn.length < 3) return null;
+    const range = question.yMax - question.yMin;
+    const xs    = question.data.map(d => d.x);
+    const xMin  = xs[0], xMax = xs[xs.length - 1];
+    let total = 0, count = 0;
+    question.data.forEach(d => {
+      if (d.x < question.revealStart) return;
+      const frac = (d.x - xMin) / (xMax - xMin);
+      const idx  = Math.round(frac * (drawn.length - 1));
+      if (idx >= 0 && idx < drawn.length) {
+        total += (Math.abs(drawn[idx].y - d.y) / range) * 100;
+        count++;
+      }
+    });
+    return Math.max(0, Math.round(100 - (count > 0 ? total / count : 100) * 2));
+  }, [drawn, question]);
+
+  return {
+    drawn, revealed,
+    handlePointerDown, handlePointerMove, handlePointerUp,
+    clear, reveal, drawProgress, score,
+  };
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Chart — canvas renderer (no need to edit this)
+// ─────────────────────────────────────────────────────────────────────────────
+function Chart({ question, drawn, revealed, onPointerDown, onPointerMove, onPointerUp }) {
+  const canvasRef = useRef(null);
+
+  const drawChart = useCallback(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx    = canvas.getContext('2d');
+    canvas.width = canvas.offsetWidth;
+    const W = canvas.width, H = canvas.height;
+    const chartW = W - PAD.l - PAD.r, chartH = H - PAD.t - PAD.b;
+    const xs   = question.data.map(d => d.x);
+    const xMin = xs[0], xMax = xs[xs.length - 1];
+    const toX  = x => PAD.l + ((x - xMin) / (xMax - xMin)) * chartW;
+    const toY  = y => PAD.t + ((question.yMax - y) / (question.yMax - question.yMin)) * chartH;
+
+    const s = getComputedStyle(document.documentElement);
+    const col = {
+      bg:     s.getPropertyValue('--bg-card').trim()      || '#fff',
+      grid:   'rgba(0,0,0,0.07)',
+      axis:   'rgba(0,0,0,0.3)',
+      label:  s.getPropertyValue('--text-tertiary').trim() || '#999',
+      line:   s.getPropertyValue('--text-secondary').trim()|| '#888',
+      dot:    s.getPropertyValue('--text-secondary').trim()|| '#888',
+      drawn:  s.getPropertyValue('--drawn').trim()         || 'rgba(55,138,221,0.75)',
+      real:   s.getPropertyValue('--accent').trim()        || '#1D9E75',
+      zone:   s.getPropertyValue('--zone').trim()          || 'rgba(55,138,221,0.04)',
+    };
+
+    ctx.fillStyle = col.bg;
+    ctx.fillRect(0, 0, W, H);
+
+    // Drawable zone shading
+    ctx.fillStyle = col.zone;
+    ctx.fillRect(toX(question.revealStart), PAD.t, toX(xMax) - toX(question.revealStart), chartH);
+
+    // Grid + Y labels
+    for (let i = 0; i <= 5; i++) {
+      const val = question.yMin + (i / 5) * (question.yMax - question.yMin);
+      const yPx = toY(val);
+      ctx.strokeStyle = col.grid; ctx.lineWidth = 0.5;
+      ctx.beginPath(); ctx.moveTo(PAD.l, yPx); ctx.lineTo(W - PAD.r, yPx); ctx.stroke();
+      ctx.fillStyle = col.label; ctx.font = '11px sans-serif'; ctx.textAlign = 'right';
+      ctx.fillText(val.toFixed(1), PAD.l - 6, yPx + 4);
+    }
+
+    // X labels
+    question.data.forEach(d => {
+      ctx.fillStyle = col.label; ctx.font = '11px sans-serif'; ctx.textAlign = 'center';
+      ctx.fillText(d.x, toX(d.x), H - PAD.b + 14);
+    });
+
+    // Axis lines
+    ctx.strokeStyle = col.axis; ctx.lineWidth = 0.5;
+    ctx.beginPath();
+    ctx.moveTo(PAD.l, PAD.t); ctx.lineTo(PAD.l, H - PAD.b); ctx.lineTo(W - PAD.r, H - PAD.b);
+    ctx.stroke();
+
+    // Known data line
+    ctx.beginPath(); ctx.strokeStyle = col.line; ctx.lineWidth = 2;
+    question.data.filter(d => d.x <= question.revealStart).forEach((d, i) => {
+      i === 0 ? ctx.moveTo(toX(d.x), toY(d.y)) : ctx.lineTo(toX(d.x), toY(d.y));
+    });
+    ctx.stroke();
+    question.data.filter(d => d.x <= question.revealStart).forEach(d => {
+      ctx.beginPath(); ctx.arc(toX(d.x), toY(d.y), 3, 0, Math.PI * 2);
+      ctx.fillStyle = col.dot; ctx.fill();
+    });
+
+    // User drawn line
+    if (drawn.length > 1) {
+      ctx.beginPath(); ctx.strokeStyle = col.drawn; ctx.lineWidth = 2;
+      drawn.forEach((d, i) => {
+        i === 0 ? ctx.moveTo(toX(d.x), toY(d.y)) : ctx.lineTo(toX(d.x), toY(d.y));
+      });
+      ctx.stroke();
+    }
+
+    // Real data on reveal
+    if (revealed) {
+      const realData   = question.data.filter(d => d.x >= question.revealStart);
+      const lastKnown  = question.data.filter(d => d.x <= question.revealStart).slice(-1)[0];
+      ctx.beginPath(); ctx.strokeStyle = col.real; ctx.lineWidth = 2.5;
+      if (lastKnown) ctx.moveTo(toX(lastKnown.x), toY(lastKnown.y));
+      realData.forEach((d, i) => {
+        i === 0 && !lastKnown ? ctx.moveTo(toX(d.x), toY(d.y)) : ctx.lineTo(toX(d.x), toY(d.y));
+      });
+      ctx.stroke();
+      realData.forEach(d => {
+        ctx.beginPath(); ctx.arc(toX(d.x), toY(d.y), 3, 0, Math.PI * 2);
+        ctx.fillStyle = col.real; ctx.fill();
+      });
+    }
+  }, [drawn, revealed, question]);
+
+  useEffect(() => { drawChart(); }, [drawChart]);
+  useEffect(() => {
+    window.addEventListener('resize', drawChart);
+    return () => window.removeEventListener('resize', drawChart);
+  }, [drawChart]);
+
+  return React.createElement('canvas', {
+    ref: canvasRef,
+    height: 240,
+    style: { display: 'block', width: '100%', cursor: revealed ? 'default' : 'crosshair' },
+    onPointerDown: e => onPointerDown(e, canvasRef.current),
+    onPointerMove: e => onPointerMove(e, canvasRef.current),
+    onPointerUp:   onPointerUp,
+    onPointerLeave: onPointerUp,
+  });
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// YouDrawIt — single question UX (no need to edit this)
+// ─────────────────────────────────────────────────────────────────────────────
+function YouDrawIt({ question, onReveal }) {
+  const {
+    drawn, revealed,
+    handlePointerDown, handlePointerMove, handlePointerUp,
+    clear, reveal, drawProgress, score,
+  } = useDrawIt(question);
+
+  const progress     = Math.round(drawProgress() * 100);
+  const canReveal    = progress >= 40;
+  const currentScore = revealed ? score() : null;
+
+  const scoreColor = currentScore === null ? null
+    : currentScore >= 70 ? '#1D9E75'
+    : currentScore >= 45 ? '#BA7517'
+    : '#D85A30';
+
+  const scoreLabel = currentScore === null ? null
+    : currentScore >= 70 ? 'Great intuition'
+    : currentScore >= 45 ? 'Pretty close'
+    : 'Off the mark';
+
+  const handleReveal = () => {
+    reveal();
+    if (onReveal) onReveal({ score: score(), question });
+  };
+
+  return React.createElement('div', { style: { fontFamily: 'inherit' } },
+
+    // Header
+    React.createElement('div', { style: { marginBottom: 12 } },
+      question.kicker && React.createElement('div', {
+        style: { fontSize: 11, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--text-tertiary)', marginBottom: 4 }
+      }, question.kicker),
+      React.createElement('div', {
+        style: { fontSize: 18, fontWeight: 600, color: 'var(--text-primary)', lineHeight: 1.35, marginBottom: 4 }
+      }, question.hed),
+      React.createElement('div', {
+        style: { fontSize: 13, color: 'var(--text-secondary)', lineHeight: 1.6 }
+      }, question.dek),
+    ),
+
+    // Canvas wrapper
+    React.createElement('div', {
+      style: { border: '1px solid var(--border)', borderRadius: 8, overflow: 'hidden', background: 'var(--bg-card)' }
+    },
+      React.createElement(Chart, {
+        question, drawn, revealed,
+        onPointerDown: handlePointerDown,
+        onPointerMove: handlePointerMove,
+        onPointerUp:   handlePointerUp,
+      })
+    ),
+
+    // Legend
+    React.createElement('div', { style: { display: 'flex', gap: 16, marginTop: 6, flexWrap: 'wrap' } },
+      React.createElement(LegendItem, { color: 'var(--text-tertiary)', label: 'Known data' }),
+      React.createElement(LegendItem, { color: 'rgba(55,138,221,0.7)', label: 'Your prediction' }),
+      revealed && React.createElement(LegendItem, { color: 'var(--accent)', label: 'Actual data' }),
+    ),
+
+    // Controls
+    React.createElement('div', { style: { display: 'flex', gap: 8, marginTop: 10, alignItems: 'center' } },
+      React.createElement('button', { onClick: clear, disabled: drawn.length === 0 || revealed }, 'Clear'),
+      React.createElement('button', {
+        onClick: handleReveal,
+        disabled: !canReveal || revealed,
+        style: { opacity: canReveal && !revealed ? 1 : 0.4 },
+      }, revealed ? 'Revealed' : canReveal ? 'Reveal answer' : `Draw more… ${progress}%`),
+    ),
+
+    // Reveal panel
+    revealed && React.createElement('div', {
+      style: { marginTop: 14, padding: '14px 16px', background: 'var(--bg-secondary)', borderRadius: 8, border: '1px solid var(--border)' }
+    },
+      React.createElement('div', {
+        style: { fontSize: 13, color: 'var(--text-secondary)', lineHeight: 1.65, marginBottom: currentScore !== null ? 12 : 0 }
+      }, question.insight),
+      currentScore !== null && React.createElement('div', { style: { display: 'flex', alignItems: 'center', gap: 12 } },
+        React.createElement('span', { style: { fontSize: 32, fontWeight: 600, color: scoreColor } }, currentScore),
+        React.createElement('div', null,
+          React.createElement('div', { style: { fontSize: 14, fontWeight: 500, color: scoreColor } }, scoreLabel),
+          React.createElement('div', { style: { fontSize: 12, color: 'var(--text-tertiary)' } }, 'out of 100'),
+        )
+      )
+    ),
+  );
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// DataStoryCard — sequencer (no need to edit this)
+// ─────────────────────────────────────────────────────────────────────────────
+function DataStoryCard({ title, questions }) {
+  const [currentIdx, setCurrentIdx] = useState(0);
+  const [scores, setScores]         = useState([]);
+  const [finished, setFinished]     = useState(false);
+
+  const handleReveal = ({ score }) => {
+    setScores(prev => [...prev, score ?? 0]);
+  };
+
+  const handleNext = () => {
+    if (currentIdx < questions.length - 1) {
+      setCurrentIdx(i => i + 1);
+    } else {
+      setFinished(true);
+    }
+  };
+
+  const avgScore       = scores.length > 0 ? Math.round(scores.reduce((a, b) => a + b, 0) / scores.length) : 0;
+  const isRevealed     = scores.length > currentIdx;
+  const currentQuestion = questions[currentIdx];
+
+  if (finished) {
+    return React.createElement('div', { style: { textAlign: 'center', padding: '2rem 1rem' } },
+      React.createElement('div', { style: { fontSize: 11, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--text-tertiary)', marginBottom: 8 } }, 'All done'),
+      React.createElement('div', {
+        style: { fontSize: 52, fontWeight: 600, color: avgScore >= 70 ? '#1D9E75' : avgScore >= 45 ? '#BA7517' : '#D85A30', marginBottom: 4 }
+      }, avgScore),
+      React.createElement('div', { style: { fontSize: 16, fontWeight: 500, color: 'var(--text-primary)', marginBottom: 4 } },
+        avgScore >= 70 ? 'Sharp economic intuition' : avgScore >= 45 ? 'Decent grasp of the trends' : 'Room to sharpen your intuition'
+      ),
+      React.createElement('div', { style: { fontSize: 13, color: 'var(--text-tertiary)', marginBottom: 24 } },
+        `Average score across ${questions.length} question${questions.length > 1 ? 's' : ''}`
+      ),
+      React.createElement('div', { style: { display: 'flex', justifyContent: 'center', gap: 10, flexWrap: 'wrap', marginBottom: 24 } },
+        scores.map((s, i) => React.createElement('div', {
+          key: i,
+          style: { background: 'var(--bg-secondary)', borderRadius: 8, padding: '10px 18px', minWidth: 72 }
+        },
+          React.createElement('div', { style: { fontSize: 11, color: 'var(--text-tertiary)', marginBottom: 2 } }, `Q${i + 1}`),
+          React.createElement('div', { style: { fontSize: 24, fontWeight: 600, color: s >= 70 ? '#1D9E75' : s >= 45 ? '#BA7517' : '#D85A30' } }, s),
+        ))
+      ),
+      React.createElement('button', {
+        onClick: () => { setCurrentIdx(0); setScores([]); setFinished(false); }
+      }, 'Start over'),
+    );
+  }
+
+  return React.createElement('div', null,
+    title && React.createElement('div', {
+      style: { fontSize: 13, fontWeight: 500, color: 'var(--text-secondary)', marginBottom: 12 }
+    }, title),
+
+    // Progress bar
+    React.createElement('div', { style: { display: 'flex', gap: 6, marginBottom: 16 } },
+      questions.map((_, i) => React.createElement('div', {
+        key: i,
+        style: {
+          height: 3, flex: 1, borderRadius: 2,
+          background: i < currentIdx ? 'var(--accent)' : i === currentIdx ? 'var(--text-primary)' : 'var(--border)',
+          transition: 'background 0.3s',
+        }
+      }))
+    ),
+
+    React.createElement(YouDrawIt, { key: currentIdx, question: currentQuestion, onReveal: handleReveal }),
+
+    isRevealed && React.createElement('div', { style: { marginTop: 12, textAlign: 'right' } },
+      React.createElement('button', { onClick: handleNext },
+        currentIdx < questions.length - 1 ? 'Next question →' : 'See results →'
+      )
+    ),
+  );
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Small helpers
+// ─────────────────────────────────────────────────────────────────────────────
+function LegendItem({ color, label }) {
+  return React.createElement('div', {
+    style: { display: 'flex', alignItems: 'center', gap: 5, fontSize: 12, color: 'var(--text-secondary)' }
+  },
+    React.createElement('div', { style: { width: 20, height: 3, borderRadius: 2, background: color } }),
+    label,
+  );
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Mount
+// ─────────────────────────────────────────────────────────────────────────────
+ReactDOM.createRoot(document.getElementById('root')).render(
+  React.createElement(DataStoryCard, { title: TITLE, questions: QUESTIONS })
+);
+</script>
+
+</body>
+</html>
 
