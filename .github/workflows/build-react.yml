@@ -1,0 +1,33 @@
+name: Build React app
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "react-src/**"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - run: npm ci
+        working-directory: react-src
+
+      - run: npm run build
+        working-directory: react-src
+
+      - run: |
+          rm -rf app
+          cp -r react-src/dist app
+
+      - uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "build: update React app"
+          file_pattern: app/
