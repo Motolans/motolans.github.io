@@ -5,7 +5,7 @@ on:
     branches: [main]
     paths:
       - "react-src/**"
-workflow_dispatch:
+  workflow_dispatch:
 jobs:
   build:
     runs-on: ubuntu-latest
