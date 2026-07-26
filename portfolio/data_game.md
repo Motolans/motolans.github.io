@@ -15,7 +15,7 @@ A music puzzle game built in [collaboration with chiptune artist Shael Riley](ht
 ---
 
 <iframe
-  src="{{ '/assets/godot/data_trial.html' | relative_url }}"
+  src="{{ '/assets/godot/Data_Trial.html' | relative_url }}"
   width="100%"
   height="400"
   style="border:none;"
