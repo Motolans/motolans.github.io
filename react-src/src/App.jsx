@@ -1,123 +1,69 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
+import { useEffect, useState, useRef } from 'react'
 import Navbar from './components/Navbar'
+import LineChart from './components/LineChart'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(20)
+  const[activeStep, setActiveStep] = useState(0)
+  const stepRefs = useRef([])
+  const colors = ["#f0f0f0", "#d4e8ff", "#d4ffd8"]
+  console.log('activeStep', activeStep)
+
+  useEffect(() => {
+    // Create an Intersection Observer to track which step is currently in view
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          //entry.target.dataset.step gives us the index of the step that is currently in view. entry.target is the DOM element that is currently in view. We can use the data-step attribute to get the index of the step.
+          const index = Number(entry.target.dataset.step)
+          setActiveStep(index)
+        }
+      })
+      //options object with threshold of 0.5 means that the observer will consider an element to be in view if at least 50% of it is visible in the viewport.
+    }, { threshold: 0.5 })
+  
+    stepRefs.current.forEach((el) => {
+      if (el) observer.observe(el)
+    })
+
+    return () => observer.disconnect()
+  }, [stepRefs.current])
+
 
   return (
     <>
       <Navbar />
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
+      <div style = {{display: "flex", paddingTop: "60px"}}>
+        <div style={{
+          position: "sticky",
+          top: "60px",
+          width: "50%",
+          height: "calc(100vh - 60px)",
+          background: colors[activeStep],
+          transition: "background 0.6s ease",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          
+        }}>
+         {/* <p>Active step: {activeStep}</p> */}
+          <LineChart activeStep={activeStep} />
         </div>
-        <div>
-          <h1>Get to Ze Choppa</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
 
-      <div className="ticks"></div>
-
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
+        <div style={{width: "50%"}}>
+          {[0,1,2].map((i)=>(
+            <div
+              key={i}
+              ref={(el) => stepRefs.current[i] = el}
+              data-step={i}
+              style={{height: "100vh", padding: "2rem", border: "1px solid #ccc"}}
+            >
+              Step {i + 1} 
+            </div>
+          ))}
         </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
+      </div>
+  </>
   )
 }
 
